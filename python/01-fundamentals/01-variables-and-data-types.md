@@ -1,17 +1,17 @@
 # Variables and Data Types
 
-> Status: Planned. These notes will be completed through concept explanations, runnable examples, exercises, and review after the topic is studied.
+> Status: Planned. This file is an outline only. We will study and expand it together when we reach this topic.
 
-## Topics
+## What you will learn
 
 - Values, objects, and names
 - Assignment and variable naming
-- Core built-in types: integers, floats, booleans, strings, and None
-- Checking types with type()
-- Type conversion and its limitations
-- Mutable versus immutable values (introduced at the appropriate point)
-- Common beginner errors and debugging
+- Integers, floats, booleans, strings, and None
+- Inspecting types with type()
+- Type conversion and conversion errors
+- Mutable and immutable values at the appropriate depth
+- Common beginner mistakes and debugging
 
-## Practice
+## Learning goal
 
-Predict the output of short examples before running them. Then modify the examples and explain what changed.
+Explain what a variable name refers to and use common built-in types correctly.
