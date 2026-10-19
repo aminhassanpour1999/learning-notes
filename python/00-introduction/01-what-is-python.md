@@ -1,42 +1,68 @@
-# What Is Python
+# What Is Python?
+
+## Lesson Purpose
+
+This lesson introduces Python as a programming language and establishes the mindset needed to learn it well. It is a conceptual lesson: the goal is to understand the ideas, not to memorize a list of facts.
 
 ## Learning Objectives
 
 By the end of this lesson, you should be able to:
 
-- Explain what a programming language is and where Python fits.
-- Describe Python's design philosophy and why readability matters.
-- Summarize Python's origins and the difference between Python 2 and Python 3.
-- Explain Python's main strengths: readability, ecosystem, portability, and productivity.
-- Recognize important trade-offs and limitations.
-- Distinguish learning Python syntax from learning to solve problems with code.
+- Define a programming language and explain what it means to call Python high-level and general-purpose.
+- Explain how an algorithm differs from a program.
+- Describe why readability matters and how meaningful names help readers.
+- Summarize Python's origins and explain why new learners should use Python 3.
+- Identify important strengths and trade-offs of Python.
+- Distinguish learning a language's syntax from learning to solve problems with code.
+
+## Prerequisites
+
+No previous programming experience is required.
 
 ## 1. What Is a Programming Language?
 
-A **programming language** is a formal way to express instructions that a computer can execute. It gives us rules and building blocks for describing operations, decisions, repetition, and the handling of data.
+A computer needs instructions represented in forms its software and hardware can process. A **programming language** gives people a defined way to express those instructions using rules for writing and interpreting code.
 
-**Python** is a high-level, general-purpose programming language.
+Python is a **high-level, general-purpose programming language**.
 
-- **High-level** means that Python provides abstractions that let us express ideas without managing every low-level detail of the computer. Its syntax is designed to be comparatively readable.
-- **General-purpose** means that Python is not limited to one specific type of task. It can be used in many areas, from small scripts to scientific computing and web services.
+- **High-level** means the language provides abstractions that let us express ideas without managing every low-level detail of the machine directly. “High-level” does not mean “better for every task.”
+- **General-purpose** means Python is not restricted to one narrow class of problems. It can be used for automation, web services, data analysis, scientific computing, testing, and many other tasks.
 
-For example:
+Consider this program:
 
 ```python
 print("Hello, world!")
 ```
 
-This is a small Python program. It asks Python to display the text `Hello, world!`.
+Expected output:
 
-Python code is written by people, then executed by a Python implementation. We will explore how execution works in the dedicated lesson **How Python Runs** rather than covering those mechanics here.
+```text
+Hello, world!
+```
 
-An algorithm is a step-by-step method for solving a problem; a program expresses a solution in a programming language. We will study that distinction more fully in **Programming Fundamentals**.
+The code asks Python to display a piece of text. The text inside quotation marks is a **string literal**; `print()` is a function call. These terms will be studied in detail later, so for now focus on the relationship between the instruction and its visible result.
+
+Python source code is written by a person and then run by a Python implementation. The implementation handles the language's execution rules. We will study execution separately rather than mixing those technical details into this first lesson.
+
+### Algorithm versus program
+
+An **algorithm** is a method consisting of steps for solving a problem. A **program** expresses instructions in a programming language so a computer can carry out a solution.
+
+For example, an algorithm for finding the average of two temperatures is:
+
+1. Add the two temperatures.
+2. Divide the sum by two.
+3. Report the result.
+
+A Python program can implement those steps, but the algorithm itself is the underlying method—not the particular spelling of Python code.
+
+**Check your understanding:** Could the same algorithm be implemented in more than one programming language? Yes. The steps can remain the same while the code differs.
 
 ## 2. Python's Design Philosophy and Readability
 
-Python emphasizes readable code, clear expression, and a practical balance between simplicity and capability. Indentation is meaningful in Python: it helps show the structure of a program.
+Python emphasizes readable code and clear expression. Indentation is meaningful in Python: it helps define the structure of compound statements. We will study its exact rules when we learn control flow.
 
-Compare these examples:
+Compare these snippets:
 
 ```python
 total_price = 24
@@ -54,37 +80,39 @@ z = x / y
 print(z)
 ```
 
-Both snippets calculate the same result, but the first gives a reader more information about what the values represent. Descriptive names make code easier to understand, review, and maintain.
+Both calculate the same value and print `8.0` in Python 3. The first version communicates more clearly what the numbers represent. Names such as `total_price` and `number_of_items` reduce the amount of guesswork a reader must do.
 
-Readability is not just about making code look nice. It helps people find mistakes, explain their reasoning, collaborate with others, and return to their own work later. Readable code still needs to be correct, tested, and appropriately designed.
+Readability matters because programs are read, modified, debugged, tested, and maintained—not merely written once. Clear code can help a future reader, including your future self, understand intent and notice mistakes.
 
-Python's design philosophy is often summarized by **The Zen of Python**. You can display it in a Python interpreter by running:
+Readable code is not automatically correct. A clear-looking program can still implement the wrong algorithm, mishandle an edge case, or produce an incorrect result. Readability supports correctness; it does not replace testing.
+
+### The Zen of Python
+
+Python's design philosophy is often summarized by **The Zen of Python**, a collection of guiding aphorisms. You can display it in a Python interpreter with:
 
 ```python
 import this
 ```
 
-Some of its well-known principles favor readability, simplicity, and explicitness. These are guiding ideas, not a guarantee that every Python program is automatically simple or well written.
+The principles favor ideas such as readability, simplicity, and explicitness. They are useful guidance, not a guarantee that every Python program is simple or well designed.
 
 ## 3. A Brief History: Python 2 and Python 3
 
-Python was created by **Guido van Rossum**. Work on it began in the late 1980s, and it was first publicly released in 1991.
+Python was created by **Guido van Rossum**. Work began in the late 1980s, and Python was first publicly released in 1991.
 
-Two major versions are especially important historically:
+Two major versions matter for understanding Python's history:
 
-- **Python 2.0** was released in 2000.
-- **Python 3.0** was released in 2008 and introduced changes that could make some Python 2 programs incompatible without modification.
-- **Python 2 reached end of life on January 1, 2020.** It no longer receives official Python 2 security updates or bug fixes from the Python project.
+- Python 2.0 was released in 2000.
+- Python 3.0 was released in 2008 and introduced changes that meant some Python 2 code needed modification to run on Python 3.
+- Python 2 reached end of life on January 1, 2020. The Python project no longer provides official Python 2 bug fixes or security updates.
 
-A couple of simple examples illustrate differences:
-
-In Python 2, `print` was commonly used as a statement:
+For example, Python 2 commonly allowed this print statement:
 
 ```python
 print "Hello"
 ```
 
-In Python 3, `print()` is a function call:
+In Python 3, use a function call:
 
 ```python
 print("Hello")
@@ -96,133 +124,193 @@ Division also differs in an important case. In Python 3:
 print(5 / 2)
 ```
 
-Output:
+Expected output:
 
 ```text
 2.5
 ```
 
-Python 3's `/` operator performs true division, including when both operands are integers. Python 2 had different default behavior for integer division in that case.
+Python 3's `/` operator performs true division, including when both operands are integers. Python 2 had different default behavior for integer division in that situation.
 
-**For new learning and new projects, use a supported Python 3 release.** Python 2 is relevant when reading legacy code, but it should not be the starting point for a new learner.
+**Practical rule:** Use a supported Python 3 release for new learning and new projects. Python 2 is worth recognizing when reading legacy code, but it is not the right starting point for a new learner.
 
-## 4. Python's Core Strengths
+## 4. Core Strengths of Python
 
-### Readability
+### 4.1 Readability and expressiveness
 
-Python's syntax often lets people express an idea with relatively little code. This can make examples easier to read and prototypes easier to develop. Good names, structure, and tests are still essential.
+Python often lets people express an idea with relatively little code. This can make examples easier to follow and prototypes quicker to build. Clear names, sound structure, and tests remain necessary.
 
-### A broad ecosystem
+### 4.2 A broad ecosystem
 
-Python comes with a **standard library**, which provides modules for many common tasks. There is also a large collection of third-party packages for specialized needs. This ecosystem means that programmers can often build on existing, maintained tools rather than implementing everything from scratch.
+Python includes a **standard library**: modules distributed with Python that support many common tasks. Third-party packages add specialized capabilities, including numerical computing, data analysis, web development, and machine learning.
 
-A large ecosystem is useful, but it also requires judgment: check whether a package is maintained, appropriate for the task, trustworthy, and compatible with your project.
+Using an established library can save time, but a package should still be evaluated for maintenance, compatibility, security, licensing, and suitability for the task. More dependencies do not automatically make a project better.
 
-### Portability
+### 4.3 Portability
 
-Python is available on major operating systems, including Linux, macOS, and Windows. Much Python code can run on different systems with little or no change.
+Python is available on major operating systems, including Linux, macOS, and Windows. Much Python code can run across these systems with little or no change.
 
-Portability is not automatic in every case. Code that relies on operating-system-specific paths, external programs, hardware, or unavailable dependencies may need adjustments.
+Portability is not guaranteed in every situation. Code may depend on operating-system-specific paths, external programs, environment variables, hardware, or packages that are not installed everywhere.
 
-### Productivity
+### 4.4 Productivity
 
-Python can be effective for experimentation, automation, scripting, prototypes, and many production applications. Its readable syntax and available libraries can help developers move from an idea to a working solution efficiently.
+Python can be effective for scripting, automation, experimentation, prototypes, and many production systems. Readable syntax and a rich ecosystem can help developers move from an idea to a working solution.
 
-Productivity depends on the problem and the developer's skills. A short program is not necessarily a good program, and using a library does not remove the need to understand what the code is doing.
+Productivity depends on the task, the developer's skills, and the quality of the solution. Shorter code is not necessarily better code, and calling a library does not remove the need to understand its behavior.
 
 ## 5. Trade-Offs and Limitations
 
-No programming language is best for every task. Python has trade-offs that are worth understanding.
+No programming language is the best choice for every problem. Python's strengths come with trade-offs.
 
-### Execution speed
+### 5.1 Execution speed
 
-For some CPU-intensive workloads, ordinary Python code can run more slowly than code written in languages that compile to optimized native machine code. However, performance depends on the workload and implementation. Many scientific Python libraries perform computationally intensive work in optimized native code, so a Python-based solution can still be very fast.
+For some CPU-intensive workloads, ordinary Python code may run more slowly than carefully optimized native code written in languages such as C or C++. Actual performance depends on the implementation, algorithm, libraries, hardware, and workload.
 
-The practical lesson is to measure performance before optimizing, then choose tools suited to the bottleneck.
+Many scientific Python packages perform their expensive numerical operations in optimized native code. As a result, a Python program can still deliver strong performance when it uses suitable libraries.
 
-### Memory use
+**Good practice:** First define what “too slow” means, measure the program, identify the bottleneck, and then optimize the part that matters. Rewriting everything in another language before measuring is often wasted effort.
 
-Python's convenient, high-level objects can involve more memory overhead than lower-level representations. This may matter when working with very large datasets or strict memory limits.
+### 5.2 Memory use
 
-### Dynamic typing
+Python objects can have more memory overhead than compact low-level representations. This can matter for very large datasets, embedded systems, or other environments with strict memory limits. Data structures and libraries should be chosen with the workload in mind.
 
-Python is dynamically typed: names are not permanently declared to hold one particular type. For example:
+### 5.3 Dynamic typing
+
+Python is dynamically typed. A name is not permanently declared to refer to only one type, so this is valid Python:
 
 ```python
 value = 10
 value = "ten"
 ```
 
-This is valid Python. The name `value` refers to an integer first and a string later. Flexibility can make code concise, but unexpected type changes can also cause bugs. Clear naming, tests, and optional type annotations can help manage this risk.
+First, `value` refers to an integer; later, it refers to a string. The code is valid, but changing the kind of value unexpectedly can make a program harder to reason about or cause errors in later operations.
 
-### Dependencies and deployment
+Clear naming, small functions, tests, and optional type annotations can help manage this flexibility. Type annotations will be covered when they become relevant.
 
-A project may depend on external packages, particular Python versions, environment variables, or operating-system features. Sharing or deploying it therefore requires care with dependencies and setup instructions. We will cover project setup and environments in the relevant introduction lessons.
+### 5.4 Dependencies and deployment
 
-### Choosing the right tool
+A program may require specific packages, a compatible Python version, environment variables, files, or operating-system features. Sharing and deploying a program therefore requires clear setup instructions and reliable dependency management. We will cover these practical details in later lessons.
 
-The best choice depends on the requirements: performance, available libraries, deployment environment, team experience, safety constraints, and long-term maintenance. Python is powerful, but it is not automatically the best fit for every problem.
+### 5.5 Choosing a tool
 
-## 6. Learning Python Versus Learning to Program
+The right choice depends on requirements such as performance, memory, hardware access, available libraries, deployment constraints, security, team experience, and long-term maintenance. Python is a powerful tool, but it is not automatically the best fit for every situation.
 
-Learning a language and learning to program are related, but they are not the same.
+## 6. Learning Python versus Learning to Program
 
-**Learning Python** includes understanding its syntax, built-in types, functions, modules, and conventions.
+Learning a language and learning to program are connected, but they are not identical.
 
-**Learning to program** includes identifying the actual problem, breaking it into manageable steps, choosing a suitable approach, handling unusual cases, testing results, and improving a solution.
+**Learning Python** includes understanding its syntax, built-in data types, expressions, functions, modules, and conventions.
 
-Consider two learners:
+**Learning to program** includes defining a problem, identifying inputs and outputs, breaking the problem into steps, choosing an approach, handling edge cases, testing the result, and improving the solution.
 
-- Learner A can read a Python program and explain what each line does.
-- Learner B can do that too, and can also analyze a new problem and develop a solution from scratch.
+Imagine two learners:
 
-Learner B has practiced a broader problem-solving skill. Reading code is valuable, but independent analysis and implementation require deliberate practice as well.
+- Learner A can read a program and explain what each line does.
+- Learner B can do that and can also analyze a new problem and build a solution without copying a complete example.
 
-To build both abilities:
+Learner B has practiced a broader skill: independent problem-solving. Reading code is useful, but independent implementation requires deliberate practice.
 
-1. Read and explain small programs.
-2. Predict their output before running them.
-3. Change one part and explain how the behavior changes.
-4. Solve small problems without looking at a complete solution first.
-5. Test normal cases and edge cases.
-6. Review mistakes and try to explain why they happened.
+A useful practice loop is:
 
-You do not need to master every programming concept before writing code. Learn a concept, use it in a small task, and revisit it as problems become more complex.
+1. Read a small program.
+2. Predict its output before running it.
+3. Run it and compare the actual output with your prediction.
+4. Change one thing and predict how the behavior will change.
+5. Solve a related problem without looking at a complete solution.
+6. Test normal cases and edge cases.
+7. Explain any mistake and what you learned from it.
+
+You do not need to master every concept before writing programs. Learn a concept, use it in a small task, and revisit it as your projects become more complex.
+
+## 7. Worked Example: From a Problem to a Program
+
+**Problem:** Find the average of two temperature measurements.
+
+**Inputs:** Two numerical measurements, here 18 and 26.
+
+**Algorithm:**
+1. Add the measurements.
+2. Divide the sum by two.
+3. Display the result.
+
+**Python implementation:**
+
+```python
+first_temperature = 18
+second_temperature = 26
+
+average_temperature = (first_temperature + second_temperature) / 2
+
+print(average_temperature)
+```
+
+Expected output:
+
+```text
+22.0
+```
+
+**Reasoning:** The sum is 44. Dividing 44 by 2 gives 22. In Python 3, the `/` operator returns a floating-point result here, so the displayed value is `22.0` rather than `22`.
+
+This example uses fixed values written in the program. It does not ask the user to enter temperatures. Later, we will learn how to receive input from a user and how to validate it.
+
+**Important limitation:** The program calculates the arithmetic mean of two numbers. It does not verify that the measurements are in the same unit or that they are valid temperature readings.
+
+## Common Misconceptions
+
+- **“High-level means faster.”** Not necessarily. High-level describes the abstractions offered by a language, not its execution speed.
+- **“General-purpose means ideal for every task.”** No. A language can be broadly useful without being the best fit for every constraint.
+- **“Readable code is always correct.”** Readability helps people reason about code, but correctness still requires suitable logic and testing.
+- **“If code runs on my computer, it will run everywhere.”** It may depend on packages, paths, operating-system behavior, or other environmental details.
+- **“Learning syntax means I can program.”** Syntax is necessary, but solving unfamiliar problems takes separate practice.
 
 ## Summary
 
 - Python is a high-level, general-purpose programming language.
-- Its design emphasizes readable and expressive code.
+- An algorithm describes a method for solving a problem; a program expresses instructions in a programming language.
+- Readability helps people understand, maintain, and debug code, but does not replace testing.
 - Python 3 is the appropriate choice for new learning and projects; Python 2 is obsolete.
-- Readability, its ecosystem, portability, and productivity are important strengths.
-- Execution speed, memory overhead, dynamic typing, and dependency management are among its trade-offs.
-- Knowing syntax is not enough: programming also involves analyzing problems, designing solutions, and testing them.
+- Python's ecosystem, portability, and productivity are strengths, while speed, memory use, dynamic typing, and deployment constraints require judgment.
+- Programming requires more than remembering syntax: it requires analysis, implementation, testing, and revision.
 
 ## Exercises
 
-Try answering these without looking back at the lesson. The goal is to explain the ideas in your own words.
+Try these without looking back at the lesson. Explain your reasoning in your own words; do not aim to reproduce the exact wording.
 
-1. What does it mean to call Python both **high-level** and **general-purpose**?
-2. Why can descriptive variable names improve code quality? Give one example.
-3. Name two differences between Python 2 and Python 3 discussed in this lesson.
-4. Give two strengths and two trade-offs of Python.
-5. A program runs slowly on a very large calculation. Why is it better to measure the bottleneck before deciding to rewrite it in another language?
-6. What is the difference between learning Python syntax and learning to program?
-7. A colleague says, “Python runs on Linux and Windows, so every Python program works identically on both.” What is incomplete about this claim?
+### Level 1 — Explain the concepts
+
+1. What does “high-level” mean when describing Python?
+2. What is the difference between an algorithm and a program?
+3. Why can descriptive variable names be more helpful than names such as `x` and `y`?
+
+### Level 2 — Apply the ideas
+
+4. In the worked example, change the second temperature from 26 to 30. Before running the program, predict the output. Then run it and explain the result.
+5. Give two strengths and two trade-offs of Python. For each one, describe a situation where it might matter.
+6. A program runs slowly on a large calculation. Explain why measuring the bottleneck is a sensible first step before changing languages.
+
+### Level 3 — Analyze and create
+
+7. Someone says, “Python runs on Linux and Windows, so every Python program works identically on both.” Explain what is incomplete about this claim.
+8. Describe an everyday problem you could solve with a program. Identify its inputs, expected output, and the steps of an algorithm. Do not write Python code yet.
+9. Explain how you would test a program that calculates an average. Include at least one ordinary case and one case that might expose a problem.
 
 ## Knowledge Check
 
-Before moving on, make sure you can explain, without memorizing the wording:
+Before moving on, try to answer these from memory:
 
-- What Python is and what “high-level” means.
-- Why readability matters beyond appearance.
-- Why new projects should use Python 3 rather than Python 2.
-- Why a language's strengths do not make it the best tool for every task.
-- Why solving new problems is an essential part of learning programming.
+- What do “high-level” and “general-purpose” mean?
+- How does an algorithm differ from a program?
+- Why does readability matter beyond appearance?
+- Why should a new project use Python 3 rather than Python 2?
+- Why can no language be declared the best choice for every task?
+- What steps help turn a problem into a tested program?
+
+If an answer is unclear, revisit that section and explain the idea in your own words before continuing.
 
 ## References
 
 - [Official Python website](https://www.python.org/)
 - [The Python Tutorial](https://docs.python.org/3/tutorial/)
 - [The Zen of Python — PEP 20](https://peps.python.org/pep-0020/)
-- [Python 2.7 documentation (historical)](https://docs.python.org/2.7/)
+- [Python 2.7 documentation (historical reference)](https://docs.python.org/2.7/)
