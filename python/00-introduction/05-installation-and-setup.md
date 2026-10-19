@@ -98,6 +98,8 @@ deactivate
 
 Activation changes which environment's commands are found in that shell; it does not replace or uninstall the system Python. You can also use the environment's Python executable directly without activating it. If PowerShell blocks activation, read the official Python and PowerShell guidance rather than changing security settings blindly.
 
+If creating an environment fails with a message that `venv` or `ensurepip` is unavailable, your operating system may package that support separately. Follow your distribution's official instructions and choose the package that matches the Python installation you are using. Avoid using `sudo pip` to modify the system Python environment.
+
 A virtual environment does not install every library automatically, and it does not replace version control. It provides a separate environment in which project dependencies can be installed.
 
 ## 6. A Sensible Setup Checklist
