@@ -1,12 +1,12 @@
 # What Is Python?
 
-> Status: Planned. This note will be written after reviewing the relevant section of *Python Crash Course*.
+> Status: Outline created. Final notes will be prepared after reviewing the relevant *Python Crash Course* material.
 
-## Learning objectives
+## Topics to cover
 
-- Explain what Python is and where it is commonly used.
-- Describe Python's main strengths and limitations.
-- Understand the basic idea of how Python code is executed.
+- What Python is
+- Core characteristics of the language
+- A brief overview of where Python fits among programming languages
 
 ## Notes
 
