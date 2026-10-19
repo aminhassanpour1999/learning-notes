@@ -69,7 +69,7 @@ Output:
 15
 ```
 
-The second assignment evaluates the old value of `score`, adds five, and binds the name to the new result. In mathematics, `=` often asserts equality; in an assignment statement, it means that a name is assigned a value.
+The second assignment evaluates the old value of `score`, adds five, and binds the name to the new result. In mathematics, `=` usually states that two expressions are equal; in Python, `=` in an assignment statement binds a name to a value. The comparison operator `==` checks whether two values are equal. For example, `score = 10` assigns a value, while `score == 10` evaluates to a Boolean result.
 
 Choose names that communicate purpose. Names such as `total_price` or `number_of_students` are often clearer than `x` or `n`, unless the shorter names are conventional and clear in context.
 
