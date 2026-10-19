@@ -1,6 +1,8 @@
 # Python Introduction
 
-This section establishes a practical mental model of Python, common application areas, basic programming concepts, the runtime, and the development workflow.
+This section introduces Python, common application areas, basic programming concepts, the runtime, and the development workflow.
+
+> **Content status:** The eight lesson drafts have been prepared and are being audited. A drafted or published note does not mean the lesson has been studied, approved, or mastered. We will work through the lessons interactively in order.
 
 ## Recommended order
 
@@ -21,18 +23,21 @@ This section establishes a practical mental model of Python, common application 
 - Use the official documentation as a reference, not as a requirement to read every page linearly.
 - Treat examples as starting points: change inputs and test your understanding.
 - Keep historical and implementation details concise until they become relevant to real work.
+- Review and revise the lesson notes together after practice; do not equate reading with mastery.
 
 ## Scope
 
 This is an orientation section, not a substitute for the later fundamentals curriculum. Variables, data types, conditions, loops, functions, data structures, modules, errors, testing, and projects receive deeper treatment in their own sections.
 
-## Completion checklist
+## Study progress
 
-- [x] What Is Python
-- [x] Python Applications
-- [x] Programming Fundamentals
-- [x] How Python Runs
-- [x] Installation and Setup
-- [x] Running Python Code
-- [x] First Python Program
-- [x] Python Documentation
+Mark a lesson as studied only after working through it, attempting its exercises, and reviewing any gaps together.
+
+- [ ] 01 — What Is Python
+- [ ] 02 — Python Applications
+- [ ] 03 — Programming Fundamentals
+- [ ] 04 — How Python Runs
+- [ ] 05 — Installation and Setup
+- [ ] 06 — Running Python Code
+- [ ] 07 — First Python Program
+- [ ] 08 — Python Documentation
