@@ -62,7 +62,13 @@ Output:
 
 Quotation marks make the content text. Without quotation marks, `2 + 3` is an arithmetic expression that Python evaluates before `print()` displays the result.
 
-## 4. Read Errors as Feedback
+## 4. Run the Program in Visual Studio Code
+
+If you use VS Code, open the project folder and open `hello.py`. Make sure the file is saved and select the intended Python interpreter using the Python extension's interpreter selector. Then use the **Run Python File** command or run the script from VS Code's integrated terminal.
+
+The integrated terminal shows the program's output and error messages. If VS Code cannot find Python or runs a different version than expected, check the selected interpreter before reinstalling Python or packages. The editor, terminal, and interpreter are separate parts of the workflow.
+
+## 5. Read Errors as Feedback
 
 A missing quotation mark or closing parenthesis may cause a syntax error. For example:
 
@@ -74,7 +80,7 @@ This code is incomplete because the function call's closing parenthesis is missi
 
 When an error occurs, read the error message instead of randomly changing several things. Check the indicated line and nearby syntax, make one change, and rerun the program.
 
-## 5. Good File and Project Habits
+## 6. Good File and Project Habits
 
 - Save changes before running the program.
 - Use descriptive filenames and variable names as your projects grow.
