@@ -70,7 +70,33 @@ A common command to create an environment is:
 python3 -m venv .venv
 ```
 
-The exact command may need to use `python` or `py` depending on the platform. Activation commands differ across shells and operating systems; consult the official `venv` documentation.
+The exact creation command may need to use `python` or `py` depending on the platform. After creating `.venv`, activation commands differ by operating system and shell.
+
+On Linux or macOS using bash/zsh:
+
+```bash
+source .venv/bin/activate
+```
+
+On Windows PowerShell:
+
+```powershell
+.venv\\Scripts\\Activate.ps1
+```
+
+On Windows Command Prompt:
+
+```bat
+.venv\\Scripts\\activate.bat
+```
+
+When activation succeeds, the environment name often appears in the shell prompt. To leave the environment, run:
+
+```bash
+deactivate
+```
+
+Activation changes which environment's commands are found in that shell; it does not replace or uninstall the system Python. You can also use the environment's Python executable directly without activating it. If PowerShell blocks activation, read the official Python and PowerShell guidance rather than changing security settings blindly.
 
 A virtual environment does not install every library automatically, and it does not replace version control. It provides a separate environment in which project dependencies can be installed.
 
