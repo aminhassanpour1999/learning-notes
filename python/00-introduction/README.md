@@ -2,7 +2,7 @@
 
 This section introduces Python, common application areas, basic programming concepts, the runtime, and the development workflow.
 
-> **Content status:** The eight lesson drafts have been prepared and are being audited. A drafted or published note does not mean the lesson has been studied, approved, or mastered. We will work through the lessons interactively in order.
+> **Module scope:** These eight lessons are sufficient for the Introduction section. They establish context, problem-solving vocabulary, runtime basics, a working development setup, the first program, and documentation skills. Deeper topics such as data types, conditions, loops, functions, data structures, files, exceptions, testing, and object-oriented programming belong in later modules. A published note does not mean the lesson has been studied or mastered.
 
 ## Recommended order
 
@@ -28,6 +28,22 @@ This section introduces Python, common application areas, basic programming conc
 ## Scope
 
 This is an orientation section, not a substitute for the later fundamentals curriculum. Variables, data types, conditions, loops, functions, data structures, modules, errors, testing, and projects receive deeper treatment in their own sections.
+
+## End-of-section checkpoint
+
+After completing all eight lessons, you should be able to:
+
+- Explain what Python is used for and describe one strength and one limitation.
+- Break a small problem into inputs, processing, and expected output before coding.
+- Explain, at a high level, how a Python implementation runs source code.
+- Identify the Python interpreter and environment used by your project.
+- Create, save, run, and modify a simple `.py` file.
+- Find an answer in the official documentation and check that it matches your Python version.
+- Describe how you would verify that a small program's output is correct.
+
+**Suggested mini-task:** Create a small script that calculates the average of two numerical values, prints the result, and includes a short comment explaining the calculation. Before running it, predict the output; after running it, compare the result with a hand calculation. State one thing the script does not check. Input validation and more advanced testing will be taught later.
+
+If you can complete this checkpoint with only occasional reference to the notes, the Introduction section has done its job. You do not need to master later Python topics in advance.
 
 ## Study progress
 
