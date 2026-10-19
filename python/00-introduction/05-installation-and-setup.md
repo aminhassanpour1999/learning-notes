@@ -81,13 +81,13 @@ source .venv/bin/activate
 On Windows PowerShell:
 
 ```powershell
-.venv\\Scripts\\Activate.ps1
+.venv\Scripts\Activate.ps1
 ```
 
 On Windows Command Prompt:
 
 ```bat
-.venv\\Scripts\\activate.bat
+.venv\Scripts\activate.bat
 ```
 
 When activation succeeds, the environment name often appears in the shell prompt. To leave the environment, run:
@@ -101,6 +101,22 @@ Activation changes which environment's commands are found in that shell; it does
 If creating an environment fails with a message that `venv` or `ensurepip` is unavailable, your operating system may package that support separately. Follow your distribution's official instructions and choose the package that matches the Python installation you are using. Avoid using `sudo pip` to modify the system Python environment.
 
 A virtual environment does not install every library automatically, and it does not replace version control. It provides a separate environment in which project dependencies can be installed.
+
+### Installing a third-party package
+
+When you are ready to use an external package, activate the project's environment first, then use that environment's Python to run pip. For example, to check pip:
+
+```bash
+python -m pip --version
+```
+
+To install a package, replace `package-name` with the package's actual name:
+
+```bash
+python -m pip install package-name
+```
+
+These are command templates, not commands to run literally with the placeholder name. Use a project's official installation instructions and verify that the package supports your Python version. On Linux, avoid using `sudo pip` to install packages into the system Python. For projects that depend on third-party packages, keep a record of dependencies and follow the project's environment instructions.
 
 ## 6. A Sensible Setup Checklist
 
