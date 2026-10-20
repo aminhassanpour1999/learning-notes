@@ -5,7 +5,7 @@ A long-term, structured learning workspace for Python, mathematics, scientific c
 ## Start here
 
 - [Learning Charter](./LEARNING-CHARTER.md) — the learning method and collaboration rules
-- [Python Curriculum](./python/README.md)
+- [Python](./python/README.md) — the main Python learning path
 - [Mathematics](./mathematics/)
 - [Scientific Computing](./scientific-computing/)
 - [Signals and Systems / Communications](./communications/)
