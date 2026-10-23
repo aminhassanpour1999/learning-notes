@@ -65,13 +65,17 @@ Write the exact output and explain why zero is not the same as `None`.
 ### 13. Debug this program (5 points)
 
 ```python
-measurement_text = input("Enter a measurement: ")
-measurement = measurement_text + 2
-average = measurement / 2
+first_text = input("Enter the first measurement: ")
+second_text = input("Enter the second measurement: ")
+
+first_measurement = float(first_text)
+second_measurement = float(second_text)
+
+average = (first_measurement + second_measurement) / 2
 print("Average: " + average)
 ```
 
-Identify at least two problems that prevent the program from working as intended. Rewrite the relevant lines, then explain how you would test your fix. You do not need to add advanced exception handling.
+Identify at least two problems that prevent the program from working as intended. Rewrite the relevant lines, then explain how you would test your fix. You should notice that text input must be converted to numbers, and that a number cannot be concatenated directly to a string with `+`. You do not need to add advanced exception handling.
 
 ## Part D — Practical task (7 points)
 
