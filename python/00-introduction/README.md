@@ -56,9 +56,9 @@ If you can complete the checkpoint with only occasional reference to the notes, 
 
 Mark a lesson as studied only after working through it, attempting its exercises, and reviewing any gaps.
 
-- [ ] 01 — What Is Python
-- [ ] 02 — Python Applications
-- [ ] 03 — Programming Fundamentals
+- [x] 01 — What Is Python
+- [x] 02 — Python Applications
+- [x] 03 — Programming Fundamentals
 - [ ] 04 — How Python Runs
 - [ ] 05 — Installation and Setup
 - [ ] 06 — Running Python Code
