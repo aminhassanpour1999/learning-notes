@@ -4,7 +4,20 @@
 **Lesson:** 1 of 9  
 **Level:** Beginner  
 **Suggested study time:** 60–75 minutes  
-**Status:** Complete teaching notes
+**Prerequisites:** Introduction module completed
+**Study method:** Read each section, predict outputs before running code, then complete the exercises
+
+## Lesson guide
+
+This lesson introduces the names Python uses to refer to values, the basic data types you will encounter, and simple ways to inspect and compare values. You do not need to memorize every example. Focus on explaining what each line does and predicting the result before running it.
+
+**Recommended workflow**
+
+1. Read one section at a time.
+2. Type the examples yourself and predict their output before running them.
+3. Change a value or a name and observe what changes.
+4. Complete the coding lab and exercises without looking at the answer key.
+5. Revisit any question you cannot explain in your own words.
 
 ## Learning objectives
 
@@ -59,7 +72,7 @@ Output:
 45
 ~~~
 
-After the second assignment, the name temperature refers to the new integer value 45.
+After the second assignment, the name `temperature` refers to the new integer object representing `45`.
 
 ### Assignment creates or updates a name binding
 
@@ -83,15 +96,15 @@ Output:
 
 Read it line by line:
 
-1. x = 10 binds the name x to the integer object 10.
-2. y = x evaluates the expression on the right. Its current value is 10, so y is also bound to the integer object representing 10.
-3. x = 20 rebinds x to 20. It does not automatically change y.
+1. `x = 10` binds the name `x` to the integer object representing `10`.
+2. `y = x` evaluates the right-hand expression. Its current value is `10`, so `y` is bound to that same object at this point.
+3. `x = 20` rebinds `x` to the integer object representing `20`. It does not automatically change `y`.
 
 **Key idea:** Python evaluates the right-hand side of an assignment and then binds the target name to the resulting object. Reassigning one name does not automatically reassign other names.
 
 ## 2. Assignment and reassignment
 
-The assignment operator is a single equals sign: **=**.
+The assignment operator is a single equals sign: `=`.
 
 ~~~python
 frequency_hz = 100_000
@@ -142,7 +155,7 @@ Do not confuse these three operators:
 | == | Test whether two values are equal | score == 90 |
 | is | Test whether two references point to the same object | value is None |
 
-The expression score == 90 asks a question and produces a Boolean result (True or False). By itself, it does not assign 90 to score.
+The expression `score == 90` asks a question and produces a Boolean result (`True` or `False`). By itself, it does not assign `90` to `score`.
 
 ~~~python
 score = 90
@@ -190,7 +203,7 @@ The first name starts with a digit, the second contains a space, and the third u
 
 ### Use snake_case
 
-Python's common convention for variable and function names is **lowercase words separated by underscores**, called snake_case.
+Python's common convention for variable and function names is **lowercase words separated by underscores**, called `snake_case`.
 
 Prefer:
 
@@ -230,7 +243,7 @@ measurement_type = "temperature"
 
 ### Keywords and checking names
 
-Python keywords have special syntactic meaning. You can inspect the interpreter's keyword list with the standard-library keyword module:
+Python keywords have special syntactic meaning. You can inspect the interpreter's keyword list with the standard-library `keyword` module:
 
 ~~~python
 import keyword
@@ -250,7 +263,7 @@ This module is not needed for everyday variable declarations, but it helps expla
 
 ## 4. Core built-in data types
 
-A **data type** describes what kind of value an object represents and what operations make sense for it. Python has many built-in types. This lesson introduces five fundamental ones.
+A **data type** describes the kind of value an object represents and helps determine which operations are meaningful for it. Python has many built-in types. This lesson introduces `int`, `float`, `str`, `bool`, and `NoneType`.
 
 ### 4.1 Integers: int
 
@@ -364,7 +377,7 @@ We will study comparisons, truthiness, and Boolean logic more thoroughly in the 
 
 ### 4.5 The absence of a value: None
 
-Python uses the special value None to represent the absence of a value or a value that has not been provided.
+Python uses the special value `None` to represent the absence of a value or a value that has not been provided.
 
 ~~~python
 measurement = None
@@ -385,7 +398,7 @@ Notice the distinction:
 - **None** is the special value.
 - **NoneType** is the name of its type.
 
-Use None when it meaningfully represents “no value available yet.” It is not the same as zero (0), an empty string (""), or False; those values have different meanings and types.
+Use `None` when it meaningfully represents “no value available yet.” It is not the same as zero (`0`), an empty string (`""`), or `False`; those values have different meanings and types.
 
 To check specifically whether a value is None, use identity:
 
@@ -406,7 +419,7 @@ The if statement is a preview; control flow will be studied later.
 
 ## 5. Inspecting values with type()
 
-The built-in type() function reports the type of an object.
+The built-in `type()` function reports the type of an object.
 
 ~~~python
 count = 4
@@ -448,7 +461,7 @@ This is a simple debugging technique. It is especially useful when data comes fr
 
 ### Names do not have a permanent type
 
-Python is dynamically typed: a name can be rebound to objects of different types at different points in a program.
+Python is **dynamically typed**: a name can be rebound to objects of different types at different points in a program.
 
 ~~~python
 value = 10
@@ -473,8 +486,8 @@ This flexibility is useful, but reusing a name for unrelated kinds of data can m
 
 These operators answer different questions:
 
-- **Equality (==)** asks whether two objects have equal values.
-- **Identity (is)** asks whether two references point to the very same object.
+- **Equality (`==`)** asks whether two objects have equal values.
+- **Identity (`is`)** asks whether two references point to the very same object.
 
 For ordinary value comparisons, use ==:
 
@@ -504,12 +517,12 @@ Output:
 True
 ~~~
 
-Do not use is as a general replacement for ==. Python may reuse some objects internally, so identity results for values such as small integers or strings should not be used to decide whether their values are equal.
+Do not use `is` as a general replacement for `==`. Python may reuse some objects internally, so identity results for values such as small integers or strings should not be used to decide whether their values are equal.
 
 Practical rule:
 
-- Compare ordinary values with ==.
-- Check for the special value None with is None (or is not None).
+- Compare ordinary values with `==`.
+- Check for the special value `None` with `is None` (or `is not None`).
 
 ## 7. Common beginner mistakes
 
@@ -560,7 +573,7 @@ Output:
 7 3
 ~~~
 
-Reassigning a does not reassign b.
+Reassigning `a` does not reassign `b`.
 
 ### Mistake 4: Confusing text with a number
 
@@ -584,7 +597,7 @@ Avoid assignments such as str = "hello" or type = 5. Choose names such as messag
 
 ### Mistake 7: Using is for ordinary value comparisons
 
-Use count == 3 to check whether the value of count equals three. Reserve identity checks for cases where object identity matters, especially value is None.
+Use `count == 3` to check whether the value of `count` equals three. Reserve identity checks for cases where object identity matters, especially `value is None`.
 
 ## 8. Coding lab: Measurement summary
 
@@ -626,7 +639,7 @@ print("Average:", average)
 print("Average type:", type(average))
 ~~~
 
-The average is calculated from the two measurements. Notice that the division operator / produces a floating-point result in Python 3, even when the result is mathematically a whole number.
+The average is calculated from the two measurements. Notice that the division operator `/` produces a floating-point result in Python 3, even when the result is mathematically a whole number.
 
 ### Step 4 — Reassign one variable
 
@@ -784,6 +797,18 @@ print(sample_count, type(sample_count))
 - The core types in this lesson are int, float, str, bool, and NoneType.
 - Use type() to inspect an object's type.
 - Use == for value equality and is None to check for None.
+
+## Completion criteria
+
+Before moving to Lesson 2, make sure you can do all of the following without copying the examples:
+
+- [ ] Explain assignment and reassignment using your own words.
+- [ ] Correctly identify `int`, `float`, `str`, `bool`, and `NoneType` values.
+- [ ] Choose readable, valid variable names.
+- [ ] Predict the output of the exercises and explain why.
+- [ ] Explain when to use `==` and when to use `is None`.
+
+You do not need to get every exercise right on the first attempt. Fix your mistakes and make sure you understand the reason for each correction.
 
 ## Official references
 
