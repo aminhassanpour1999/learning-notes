@@ -2,103 +2,151 @@
 
 ## Learning Objectives
 
-- Recognize the main parts of the official Python documentation.
-- Choose the right reference for a question.
-- Read examples and API descriptions carefully.
-- Check which Python version a page describes.
-- Use documentation together with small experiments.
+By the end of this lesson, you should be able to:
+
+- Navigate the official Python documentation and choose a suitable reference.
+- Find a built-in function and interpret its signature, parameters, return value, exceptions, and version notes.
+- Distinguish the Python Tutorial, Language Reference, Standard Library Reference, and third-party documentation.
+- Check whether documentation matches the Python version you are using.
+- Verify a claim by running a small, controlled experiment.
 
 ## 1. Why Documentation Matters
 
-Documentation is a primary source for learning how a language and its libraries are intended to work. It can explain syntax, behavior, function arguments, return values, exceptions, examples, and compatibility notes.
+Documentation is the primary reference for how Python and its libraries are intended to work. It explains syntax, behavior, arguments, return values, exceptions, examples, and compatibility notes.
 
-Search results, tutorials, and forum posts can be useful, but they may be outdated or omit important conditions. When a question concerns Python's actual behavior, consult the official documentation and test a small example when possible.
+Search results, tutorials, and forum posts can be useful, but they may be outdated or omit important conditions. When a question concerns Python's behavior, consult official documentation and test your understanding with a small example.
 
-You do not need to read all documentation from beginning to end. Learn how to find the relevant page and extract the information needed for the current problem.
+You do not need to read documentation from beginning to end. The practical skill is finding the right page and extracting the details that answer your current question.
 
-## 2. The Python Tutorial
+## 2. Choose the Right Reference
 
-The **Python Tutorial** is a guided introduction to Python's main language features. It is especially useful for learning the language in a structured order and seeing examples in context.
+| Resource | Best used for |
+| --- | --- |
+| Python Tutorial | A guided introduction to language features, with examples in a learning sequence. |
+| Language Reference | Precise, formal descriptions of Python syntax and language semantics. |
+| Standard Library Reference | Built-in functions, types, and modules distributed with Python. |
+| Glossary | Definitions of technical terms used throughout the documentation. |
+| Python Packaging User Guide | Installing packages, managing dependencies, and packaging projects. |
+| Third-party project documentation | APIs and behavior of packages that do not ship with Python itself. |
 
-The tutorial assumes some familiarity with programming concepts, so a beginner may need additional explanations and practice. Use it as a reference and learning path, not as a replacement for solving exercises yourself.
+The Tutorial is usually the friendliest starting point for learning a topic. The Language Reference is more formal and useful when you need exact rules. You do not need to memorize it; learn that it exists and how to consult it.
 
-## 3. The Language Reference
+A package being popular does not make it part of the standard library. NumPy and pandas, for example, are third-party packages with their own documentation and installation requirements.
 
-The **Language Reference** describes Python's syntax and core language semantics in more formal detail. It is useful when you need a precise answer about how a language construct is defined.
+## 3. Practical Example: Looking Up len()
 
-It is more technical than the tutorial. Beginners do not need to memorize it, but knowing that it exists helps when a tutorial-level explanation is insufficient.
+Suppose you want to know what the built-in function len() does and what kinds of objects it accepts.
 
-## 4. The Standard Library Reference
+1. Open the [official built-in functions reference](https://docs.python.org/3/library/functions.html).
+2. Find the entry for len.
+3. Read its signature: len(object, /).
+4. Read the description and version or implementation notes.
+5. Predict what this code will print before running it.
 
-The **Standard Library** documentation describes modules included with Python, such as tools for mathematics, paths, dates, JSON, CSV, testing, and file handling.
+    text = "Python"
+    print(len(text))
 
-When looking up a function or module, check:
+Expected output:
 
-- The exact name and purpose.
-- The parameters it accepts.
-- The value it returns, if any.
-- Exceptions it may raise.
-- Important side effects or platform limitations.
-- Examples and version notes.
+    6
 
-Do not assume that every package mentioned in a tutorial is part of the standard library. Third-party packages generally have their own documentation and installation requirements.
+The documentation says len() returns the number of items in an object. For a string, those items are characters. The slash in the signature means the parameter before it is positional-only: call it as len(text), not len(object=text).
 
-## 5. The Glossary
+Now change the example to the string "signal processing". Predict the output, then run it. This checks that you understand the rule rather than merely recognizing a memorized result.
 
-The official **Glossary** defines technical terms used throughout the documentation. It can help clarify words such as *iterable*, *hashable*, *argument*, *parameter*, and *scope*.
+**Important distinction:** documentation describes the behavior a function promises; a small experiment checks your interpretation. Testing a few examples does not prove every possible case.
 
-Technical words sometimes have a more precise meaning in programming than in everyday conversation. When an explanation depends on a term, look it up rather than relying on a vague guess.
+## 4. How to Read an API Entry
 
-## 6. Python Packaging User Guide
+When you look up a function, method, or module, use this checklist:
 
-The **Python Packaging User Guide** covers packaging projects, installing packages, and related tools and practices. It becomes particularly useful when moving beyond one-file programs to projects with dependencies or when sharing code with others.
+1. **Purpose:** What problem does it solve?
+2. **Signature:** What arguments can you pass, and which are optional?
+3. **Parameters:** What kind of value is expected for each argument?
+4. **Return value:** What comes back, and what does it represent?
+5. **Exceptions:** Under what conditions can it fail?
+6. **Side effects:** Does it change an object, write a file, access a network, or affect external state?
+7. **Version notes:** Was the feature added, changed, or deprecated in a particular release?
+8. **Examples:** Do they match the problem you are trying to solve?
 
-Package installation commands and environment setup depend on the project and system. Follow current official guidance rather than copying commands without understanding which interpreter and environment they affect.
+Do not assume a function always returns a useful value just because it performs an operation. For example, print() displays text and returns None. A function may modify something or raise an exception rather than return the result you expected.
 
-## 7. Version-Specific Documentation
+## 5. Version-Specific Documentation
 
-Documentation pages usually describe a particular Python version. A feature or behavior available in a newer release may not exist in an older one, and a third-party library may support only a subset of Python versions.
+Python evolves. A feature available in a newer release may not exist in an older one, and third-party packages may support only certain Python versions.
+
+Check the version you are running:
+
+    python --version
+
+If your system distinguishes commands for Python 3, this may also work:
+
+    python3 --version
+
+The /3/ documentation URL generally points to the current Python 3 documentation, so read version notes carefully when working with an older interpreter.
 
 When an example fails:
 
-1. Check the Python version you are running.
-2. Check the version described by the documentation.
-3. Check whether the feature or argument exists in both versions.
-4. Read the error message and nearby documentation.
-5. Try a minimal reproducible example.
+1. Check the Python version used to run the code.
+2. Check whether the feature or argument exists in that version.
+3. Read the full error message and inspect the relevant documentation entry.
+4. Reduce the problem to the smallest example that still reproduces the issue.
+5. Change one thing at a time and run it again.
 
-Avoid assuming that an online answer from several years ago still applies unchanged.
+Avoid assuming an old online answer applies unchanged to your environment.
 
-## 8. A Practical Documentation Workflow
+## 6. Built-in Help and Introspection
 
-When you encounter an unfamiliar function:
+Python provides tools that can help you investigate objects from an interactive interpreter.
 
-1. Search for the function in the official documentation.
-2. Read the overview and signature.
-3. Identify its inputs, output, exceptions, and side effects.
-4. Study one example.
-5. Run a small example locally.
-6. Modify the example to test your understanding.
-7. Record the rule and link in your notes if it will be useful again.
+- help(len) opens help for the built-in len() function.
+- type("Python") tells you the type of the value.
+- dir("Python") lists names available on that object; it is a discovery aid, not a complete specification.
 
-For example, if you are unsure how `round()` behaves, read its official description, try a few inputs, and compare the results with your expectation. A tiny experiment often makes a definition easier to understand.
+Try help(len) in the Python REPL. It is useful as a quick local reference. For authoritative behavior and version notes, compare it with the online documentation.
+
+## 7. A Repeatable Documentation Workflow
+
+When you encounter an unfamiliar function or feature:
+
+1. State the question precisely. For example: “What does len() return for a string?”
+2. Search the official documentation or navigate to the relevant reference.
+3. Read the description and signature instead of copying the first example you see.
+4. Identify expected inputs, output, exceptions, side effects, and version constraints.
+5. Predict what a minimal example will do.
+6. Run it locally and compare the result with your prediction.
+7. Modify one input or condition to test the rule.
+8. Record the rule and source link in your notes if it will be useful again.
+
+This process is useful beyond Python. It is a general way to learn APIs and technical tools without relying entirely on someone else's explanation.
+
+## 8. Common Mistakes
+
+- **Reading only the first search result:** it may refer to another Python version or a different package.
+- **Confusing the tutorial with the full specification:** a tutorial teaches progressively; the Language Reference describes formal rules.
+- **Confusing standard-library modules with third-party packages:** installation and support policies may differ.
+- **Copying an example without predicting its result:** execution alone does not guarantee understanding.
+- **Ignoring exceptions and side effects:** the normal return value is only part of an API's behavior.
+- **Assuming one successful example proves every case:** test boundary conditions when they matter.
 
 ## Summary
 
-The official documentation includes a guided tutorial, a formal language reference, standard-library reference, glossary, and packaging guide. Choose the source that matches your question, check its version, and combine reading with small experiments.
+Use the Python Tutorial for guided learning, the Language Reference for precise language rules, the Standard Library Reference for built-in functionality, the Glossary for terminology, and package-specific documentation for third-party tools. Check version notes, read the complete API entry, and test your interpretation with a small example.
 
 ## Exercises
 
-1. Which documentation section would you consult for a guided overview of Python's language features?
-2. Where would you look up a built-in function's parameters and return behavior?
-3. Why should you check the version of Python described by a documentation page?
-4. Explain the difference between the standard library and a third-party package.
-5. Choose one built-in function, read its official documentation, and write down its purpose, inputs, output, and one example.
-6. Find an unfamiliar technical term in the official glossary and explain it in your own words.
+1. Which resource would you start with for a guided introduction to Python's language features?
+2. Which resource describes formal language syntax and semantics?
+3. Explain the difference between the standard library and a third-party package.
+4. In the signature len(object, /), what does the slash mean?
+5. Look up round() in the official built-in functions reference. Record its purpose, signature, return behavior, and one detail that surprised you.
+6. Run help(len) in the REPL. In your own words, describe one useful piece of information it shows.
+7. Find a version note for a Python feature and explain why it might matter to someone running an older interpreter.
+8. Choose one standard-library function, predict the output of a small example, run it, and explain whether the result matched your prediction.
 
 ## Knowledge Check
 
-You should be able to choose an appropriate official reference, extract the key details of an API, and verify your understanding with a small local example.
+You are ready to move on when you can find an appropriate reference, interpret a function's signature and behavior, check version compatibility, and verify your understanding with a small experiment.
 
 ## References
 
@@ -106,5 +154,6 @@ You should be able to choose an appropriate official reference, extract the key 
 - [The Python Tutorial](https://docs.python.org/3/tutorial/)
 - [The Python Language Reference](https://docs.python.org/3/reference/)
 - [The Python Standard Library](https://docs.python.org/3/library/)
+- [Built-in functions, including len() and round()](https://docs.python.org/3/library/functions.html)
 - [The Python Glossary](https://docs.python.org/3/glossary.html)
 - [Python Packaging User Guide](https://packaging.python.org/en/latest/)
