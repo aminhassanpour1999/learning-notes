@@ -2,303 +2,203 @@
 
 ## Lesson Purpose
 
-This lesson maps the kinds of problems Python can help solve. It introduces the main application areas, the roles of common libraries and frameworks, and a practical way to decide whether Python is a suitable tool.
+Python is used across many fields, but no language or library is the best tool for every job. This lesson surveys common application areas, introduces the kinds of problems Python can solve, and connects those examples to scientific computing and telecommunications.
 
-This is an orientation lesson, not a full course in web development, data science, machine learning, or digital signal processing. Those subjects require their own concepts, prerequisites, and projects later in the learning path.
+The goal is orientation, not mastery of every framework or library mentioned. Later lessons will teach the language features and tools needed to build real projects.
 
 ## Learning Objectives
 
 By the end of this lesson, you should be able to:
 
-- Identify common application areas for Python and give a realistic example of each.
-- Distinguish Python itself from a library, framework, and development tool.
-- Describe the basic workflows involved in automation, web development, data analysis, scientific computing, machine learning, and testing.
-- Identify relevant Python tools without assuming that a library solves the entire problem.
-- Explain how Python can support communications and signal-processing work.
-- Evaluate whether Python is suitable for a task based on requirements, evidence, and constraints.
+- Name several areas where Python is used and describe a representative task in each.
+- Distinguish the Python language from libraries and frameworks built around it.
+- Explain why Python is useful for experimentation and data analysis.
+- Identify strengths and limitations relevant to engineering work.
+- Outline a simple, responsible workflow for analyzing signal or measurement data.
 
 ## Prerequisites
 
-You should understand the introductory ideas from **What Is Python?** In particular, remember that Python is a general-purpose language, and that choosing a language does not remove the need to understand the problem.
+You should have a basic idea of what a program is and how an algorithm describes a sequence of steps. You do not need prior knowledge of web development, machine learning, or digital signal processing.
 
 ## 1. Automation and Scripting
 
-**Automation** uses software to carry out repeatable work with less manual effort. A **script** is a program often written to perform a focused task.
+Python can automate repetitive tasks such as renaming files, checking folders, parsing logs, generating reports, or validating configuration values.
 
-Python can be used to:
+For example, a script could read transmitter configuration records and flag frequencies outside an allowed range. The useful work is not merely writing code: it is defining the rule correctly, handling unexpected input, and checking that the script reports the right cases.
 
-- Rename or organize groups of files.
-- Read text files and extract selected information.
-- Process CSV or JSON data.
-- Generate routine reports.
-- Check log files for warning messages.
-- Run or coordinate command-line tools.
+Automation is especially valuable when a task is repetitive, rule-based, and performed often enough that saving time or reducing mistakes matters.
 
-For example, a communications technician might have hundreds of transmitter log files. A Python script could search for lines containing a known error code and produce a summary for further inspection. The script can make a repetitive task faster, but it cannot automatically determine the engineering significance of every message unless that meaning is explicitly modeled and validated.
-
-A responsible automation workflow is:
-
-1. Define the task and the expected result.
-2. Test the script on a small sample.
-3. Check how it handles missing, malformed, or unexpected data.
-4. Protect original files before performing destructive operations.
-5. Compare the output with a trusted manual result.
-6. Document how to run the script again.
-
-Automation is not the same as making a task safe by default. A script that renames, overwrites, or deletes files can cause damage if it is not tested carefully.
+**Keep in mind:** automation should not silently perform risky changes. For important systems, start with read-only checks, test on sample data, log what the script would do, and add safeguards before allowing it to change real equipment or configuration.
 
 ## 2. Web Applications and APIs
 
-Python is commonly used to build the server-side logic of websites and web applications. Frameworks such as Django, Flask, and FastAPI provide reusable structures and tools for handling requests, organizing code, and returning responses.
+Python can power websites, backend services, and APIs. A web application might receive a request, validate submitted data, perform a calculation, query a database, and return a response.
 
-An **API** (application programming interface) defines how software components communicate. A web API often receives an HTTP request and returns a response, frequently using JSON to represent structured data.
+Examples of popular tools include:
 
-A Python program might:
+- [Django](https://www.djangoproject.com/): a full-featured web framework.
+- [Flask](https://flask.palletsprojects.com/): a lightweight web framework.
+- [FastAPI](https://fastapi.tiangolo.com/): a framework commonly used to build APIs.
 
-- Provide an API that another application calls.
-- Call an existing API to retrieve information.
-- Validate submitted data.
-- Apply business rules and query a database.
-- Return results to a website or another service.
-
-A framework is not the same thing as Python itself. Python is the language; a framework is a collection of tools and conventions that helps developers build a particular type of application.
-
-A complete web application may also require HTML, CSS, JavaScript, a database, authentication, a web server, deployment configuration, monitoring, and security practices. Choosing a framework depends on the application's needs and the team's experience.
+These tools are not part of the Python standard library; they are separate projects with their own documentation and installation requirements. You do not need to choose one during this introductory lesson.
 
 ## 3. Data Analysis and Visualization
 
-Python is widely used to inspect, transform, summarize, and visualize data. Typical questions include:
-
-- What values are common or unusual?
-- Are there missing or inconsistent records?
-- How does one measurement change over time?
-- Do two variables appear to be related?
-- What does the data support—and what does it not support?
+Python is widely used to inspect, clean, summarize, and visualize data. This can include financial records, laboratory measurements, network logs, or signal measurements.
 
 Common tools include:
 
-- **pandas** — working with labeled, tabular data such as rows and columns.
-- **NumPy** — arrays and numerical operations.
-- **Matplotlib** — creating plots and visualizations.
-- **Jupyter** — interactive notebooks that can combine code, explanations, and outputs.
+- [NumPy](https://numpy.org/doc/): numerical arrays and mathematical operations.
+- [pandas](https://pandas.pydata.org/docs/): tabular data and data-cleaning workflows.
+- [Matplotlib](https://matplotlib.org/stable/): plots and visualizations.
 
-A typical analysis workflow is:
+A typical workflow is to load data, check its structure and quality, calculate useful summaries, visualize patterns, and communicate results. A graph can reveal a pattern, but it cannot by itself establish why that pattern occurred.
 
-1. Define the question.
-2. Load the data.
-3. Inspect its structure, units, and quality.
-4. Clean or transform it where justified.
-5. Calculate relevant summaries.
-6. Visualize or otherwise examine the results.
-7. Check assumptions and uncertainty.
-8. Communicate conclusions, including limitations.
+### Worked Example: Averaging Measurements
 
-A chart does not prove a claim merely because it looks convincing. Results can be misleading when data is incomplete, units are mixed, axes are chosen poorly, or the analysis does not address the original question. A good analysis explains how the data was obtained and what conclusions are justified.
+Suppose three measurements are 10, 12, and 14. The arithmetic mean is:
 
-## 4. Scientific Computing and Engineering
+    (10 + 12 + 14) / 3 = 12
 
-Scientists and engineers use Python for numerical calculations, mathematical modeling, simulation, experiment analysis, and signal processing.
+A small Python expression can calculate the result:
 
-Useful tools include:
-
-- **NumPy** for numerical arrays and operations.
-- **SciPy** for scientific algorithms, including routines in signal processing and optimization.
-- **Matplotlib** for plotting and visualizing results.
-- Domain-specific packages for specialized engineering or scientific tasks.
-
-For example, an engineer could simulate a system under different parameter values, plot the response, and compare the results with theoretical expectations. A researcher could process measurement data and create a reproducible analysis script rather than repeating manual calculations.
-
-A simulation is not automatically correct because it produces a smooth graph. Its reliability depends on the mathematical model, assumptions, units, numerical methods, implementation, and validation against known results or real measurements.
-
-### A note on Fourier analysis and FFT
-
-In signal processing, the **Fourier transform** helps describe how a signal's content is distributed across frequencies. The **Fast Fourier Transform (FFT)** is an efficient family of algorithms for computing a discrete Fourier transform; it is not a separate physical phenomenon and does not, by itself, explain what caused a measured frequency component.
-
-Interpreting a spectrum correctly depends on details such as the sampling rate, number of samples, units, windowing, signal stationarity, and the presence of noise or interference. The sampling rate sets the frequency range that can be represented without aliasing under the usual sampling assumptions. A plot alone cannot repair an inadequately sampled signal or prove the origin of a peak.
-
-We will study these concepts later in a dedicated signals-and-systems path. Here, the goal is to understand that Python can support the computation and visualization, while engineering theory is needed to interpret the result.
-
-## 5. Artificial Intelligence and Machine Learning
-
-**Artificial intelligence (AI)** is a broad field concerned with systems performing tasks associated with capabilities such as perception, reasoning, language, or decision-making. **Machine learning (ML)** is a part of AI in which a system learns patterns from data instead of relying only on rules manually written for every case.
-
-Python is widely used in ML because its ecosystem supports data preparation, experimentation, model training, and evaluation.
-
-Examples of tools include:
-
-- **scikit-learn** for many traditional machine-learning workflows.
-- **PyTorch** and **TensorFlow** for deep-learning workflows.
-- **pandas** and **NumPy** for manipulating and preparing data.
-
-A responsible ML workflow may include:
-
-1. Define the prediction or decision problem.
-2. Collect data that represents the conditions where the system will be used.
-3. Inspect, clean, and label the data where appropriate.
-4. Establish a simple baseline.
-5. Split data into suitable training, validation, and test sets.
-6. Train and tune a model without leaking test information into training.
-7. Evaluate it using metrics relevant to the actual task.
-8. Examine errors, limitations, bias, and robustness.
-9. Monitor the model if it is deployed.
-
-A model does not become reliable merely because training finishes. Data quality, leakage, an unsuitable metric, a mismatch between training and real-world conditions, or changes over time can make a model fail.
-
-For example, an ML model might classify an input signal as one of several modulation classes. It needs representative labeled examples and careful evaluation on signals it did not train on. Noise, synchronization errors, channel effects, sampling choices, and unfamiliar conditions can reduce accuracy. A predicted label is an estimate, not a guarantee.
-
-## 6. Python in Telecommunications and Signal Processing
-
-Python is especially useful as an engineering tool for exploring communications systems, testing ideas, and analyzing data. Possible applications include:
-
-- Generating and plotting simple waveforms.
-- Simulating noise and channel effects.
-- Examining a signal in time and frequency domains.
-- Comparing modulation schemes under controlled assumptions.
-- Analyzing equipment logs and measurement records.
-- Building experiments to evaluate a signal-processing algorithm.
-- Preparing data for a machine-learning model and evaluating its predictions.
-
-Consider a simplified modulation-classification experiment. A program could generate example BPSK, QPSK, and 16-QAM signals, apply modeled channel effects, extract or learn useful features, and evaluate whether a classifier distinguishes the classes on held-out examples.
-
-That description is a project outline, not a complete solution. A meaningful experiment must specify signal generation, symbol rate, sample rate, carrier or baseband representation, noise level, synchronization assumptions, data split, evaluation metric, and the conditions under which the result is expected to generalize. Otherwise, an impressive accuracy score may reflect an unrealistic or flawed experiment.
-
-Python is often the convenient layer for experimentation and analysis. Optimized native libraries can handle computationally intensive operations. For some real-time or embedded tasks, timing, memory, hardware support, and deployment constraints may favor C, C++, FPGA logic, or a combination of technologies.
-
-The important point is not that Python replaces telecommunications theory or every engineering tool. It can help turn theoretical ideas into repeatable experiments and inspectable results.
-
-## 7. Testing and Developer Tools
-
-Python can improve software quality and reduce repetitive development work. It can be used to:
-
-- Test whether functions and applications behave as expected.
-- Validate data files and configuration.
-- Search logs for known patterns.
-- Compare generated outputs.
-- Automate checks in a development workflow.
-
-Python's standard library includes `unittest`. Third-party tools such as `pytest` are also widely used.
-
-A **test** checks behavior under specified conditions. Tests are valuable because they can catch mistakes and prevent regressions, but passing tests do not prove that software is free of defects. The quality of a test suite depends on which cases it covers and whether the expected behavior is correct.
-
-For example, a function that calculates an average should be tested with ordinary values, repeated values, negative values when allowed, and invalid inputs if the function is expected to validate them. The appropriate cases depend on the function's contract.
-
-## 8. Libraries, Frameworks, and Tools: What Is the Difference?
-
-These terms are related but not interchangeable.
-
-- **Programming language:** The rules and constructs used to write a program, such as Python.
-- **Library:** Reusable code that a program can call for a specific capability, such as NumPy for numerical arrays.
-- **Framework:** A structure and set of conventions that guides how an application is organized, such as Django for web development.
-- **Development tool:** Software that supports writing, running, inspecting, testing, or managing code, such as an editor, debugger, or notebook environment.
-
-The boundaries can overlap in practice, and not every project uses all of these categories. The key idea is that Python is the language, while libraries, frameworks, and tools provide different kinds of support around it.
-
-A library is not a substitute for understanding the problem. You still need to know what the inputs mean, what the output represents, what assumptions are being made, and how to check the result.
-
-## 9. Strengths, Limitations, and Choosing a Tool
-
-Python can be a strong choice when:
-
-- Readability and development speed matter.
-- Reliable libraries already exist for the task.
-- The work involves automation, data, scientific analysis, or application logic.
-- The solution can be tested and deployed in the target environment.
-- The team can maintain the code over time.
-
-Another technology—or a mixed-language solution—may be more suitable when:
-
-- Very strict timing requirements must be met.
-- Hardware access or low-level control is central.
-- Memory or storage is severely constrained.
-- A measured performance bottleneck cannot be addressed effectively through an appropriate library or algorithm.
-- The target platform or organization imposes other requirements.
-
-These are decision factors, not absolute rules. Python can interact with lower-level code and optimized libraries, and some microcontrollers can run MicroPython. Suitability depends on the exact hardware, available implementation, timing requirements, memory budget, and deployment needs.
-
-Before choosing a tool, ask:
-
-1. What problem am I actually trying to solve?
-2. What are the inputs and expected outputs?
-3. What correctness, performance, memory, security, and deployment constraints apply?
-4. Are suitable libraries available and maintained?
-5. How will I test the result?
-6. Who will maintain the solution?
-
-When performance is uncertain, build a small representative prototype and measure it rather than relying only on assumptions about a language.
-
-## Worked Example: Averaging Measurements
-
-Suppose three measurement records have values 48, 50, and 46 in the same unit and under comparable conditions.
-
-```python
-measurement_1 = 48
-measurement_2 = 50
-measurement_3 = 46
-
-average_measurement = (
-    measurement_1 + measurement_2 + measurement_3
-) / 3
-
-print(average_measurement)
-```
+    measurements = [10, 12, 14]
+    average = sum(measurements) / len(measurements)
+    print(average)
 
 Expected output:
 
-```text
-48.0
-```
+    12.0
 
-This demonstrates a simple calculation and readable variable names. It does **not** demonstrate data loading, error handling, uncertainty analysis, or a domain-specific measurement procedure.
+This example uses built-in Python features, not NumPy or pandas. For a tiny task, the built-ins are enough. Specialized libraries become useful when data is larger, more complex, or requires specialized operations.
 
-In engineering, always check what the numbers represent before combining them. For example, arithmetic averaging of values expressed in decibels is not generally equivalent to averaging the corresponding linear power quantities and converting the result back to decibels. The correct calculation depends on the physical meaning of the measurement and the question being asked.
+Before interpreting real measurements, ask what was measured, which units were used, whether missing or invalid values exist, and whether the average is an appropriate summary.
 
-## Common Misconceptions
+## 4. Scientific Computing and Engineering
 
-- **“Python is used for AI, so every Python program is AI.”** No. Python is a general-purpose language; AI is only one application area.
-- **“A library makes the answer correct.”** A library can contain useful algorithms, but the user must still provide appropriate inputs and interpret the result correctly.
-- **“A plot proves a scientific claim.”** A plot is a way to inspect or communicate data; the assumptions and analysis determine what can be concluded.
-- **“An ML model that performs well on training data is ready to deploy.”** Training performance alone does not establish generalization.
-- **“Python cannot run on embedded devices.”** Some devices support MicroPython or other Python implementations, but constraints differ by device and task.
-- **“Python is always too slow for engineering.”** Performance depends on the workload, algorithm, and libraries; measurement is more reliable than a blanket claim.
-- **“Python can replace domain knowledge.”** It can help perform calculations, simulations, and analysis, but it cannot make an invalid model or interpretation scientifically sound.
+Python is often used to explore mathematical models, process experimental data, compare algorithms, and prototype engineering ideas. Its ecosystem makes it practical to move between numerical calculations, visualizations, and written analysis.
+
+Relevant tools include:
+
+- NumPy for array-based numerical computing.
+- SciPy for scientific algorithms, including optimization and signal-processing tools.
+- Matplotlib for visualizing results.
+- Jupyter for interactive notebooks that combine code, output, and explanatory text.
+
+A useful pattern is to begin with a small, understandable example, compare the result with a known calculation, and only then scale up to larger data or more complicated models.
+
+Python is not automatically the fastest choice for every computation. Many numerical libraries call optimized code written in compiled languages, while performance-sensitive systems may need a different implementation or a carefully optimized component.
+
+## 5. A Telecommunications and Signal-Processing Connection
+
+Python can support telecommunications engineering tasks such as inspecting captured data, analyzing noise, exploring modulation schemes, visualizing spectra, and evaluating algorithms before deploying them.
+
+Possible tools include NumPy and SciPy, especially the [SciPy signal-processing reference](https://docs.scipy.org/doc/scipy/reference/signal.html). A later project could generate or load a signal, add controlled noise, inspect it in the time and frequency domains, and compare simple analysis methods.
+
+### Fourier analysis and the FFT
+
+Fourier analysis helps describe how a signal's content is distributed across frequencies. The fast Fourier transform (FFT) is an efficient algorithm for computing the discrete Fourier transform.
+
+For sampled signals, interpretation depends on details such as the sampling rate, number of samples, units, windowing, and frequency resolution. A spectral peak is evidence of frequency content in the analyzed data; it does not automatically prove the physical cause of that content.
+
+For now, remember the role of the tools rather than memorizing formulas. Signal processing will be studied in depth in a separate module.
+
+## 6. Artificial Intelligence and Machine Learning
+
+Python is widely used to prepare datasets, train models, evaluate results, and run machine-learning experiments. Libraries include:
+
+- [scikit-learn](https://scikit-learn.org/stable/): many conventional machine-learning algorithms and evaluation tools.
+- [PyTorch](https://pytorch.org/docs/stable/): a framework used for deep learning and tensor-based computation.
+
+A telecommunications example is **modulation classification**: given sampled signal data, a model attempts to classify the modulation type. A responsible workflow needs more than choosing a model:
+
+1. Define the classification task and what counts as a correct result.
+2. Collect or generate labeled data representative of intended conditions.
+3. Separate training and evaluation data carefully to avoid leakage.
+4. Establish a simple baseline before trying a more complex model.
+5. Evaluate results across relevant noise levels, channels, signal-to-noise ratios, and other conditions.
+6. Inspect errors and limitations rather than reporting accuracy alone.
+
+A model may learn artifacts in a dataset rather than the underlying signal properties. High performance on one dataset does not guarantee performance on real-world signals. Good data design, appropriate evaluation, and engineering knowledge are essential.
+
+Machine learning is a later topic. This example shows how Python can connect programming with communications engineering; it is not a promise that a model can reliably classify every signal.
+
+## 7. Testing and Developer Tools
+
+Python can also support software testing, command-line tools, build scripts, and developer workflows. Tests help check whether code behaves as expected for selected inputs and conditions.
+
+Python includes tools such as unittest in its standard library, while other testing tools are available as third-party packages. Tests are most useful when they express clear expectations and include ordinary cases, boundary cases, and likely failure cases.
+
+No test suite proves that a program is correct for every possible input. Testing reduces uncertainty and helps detect regressions; thoughtful design and review still matter.
+
+## 8. Language, Library, and Framework: What Is the Difference?
+
+These terms describe different layers:
+
+- **Python** is the programming language and its language rules.
+- **The standard library** is the set of modules and tools distributed with a Python installation.
+- **A third-party library** adds reusable functionality and is installed separately in the relevant environment.
+- **A framework** provides a broader structure or conventions for building a particular kind of application.
+
+For example, Python is the language; pathlib is part of the standard library; NumPy is a third-party library; Django is a web framework.
+
+The distinction matters because documentation, installation, version compatibility, and support differ between projects.
+
+## 9. Strengths, Limitations, and Choosing a Tool
+
+### Strengths
+
+- Readable syntax can make many programs easier to express and review.
+- A broad ecosystem supports automation, analysis, web development, and research.
+- Interactive workflows help test ideas quickly.
+- Python integrates well with compiled libraries and tools written in other languages.
+- It is useful for prototyping and communicating technical work through code and visualizations.
+
+### Limitations
+
+- Pure Python code may be slower than compiled code for some workloads.
+- Dependencies and environment differences can make projects harder to reproduce.
+- A library's behavior, performance, and compatibility still need to be checked.
+- Python is not the best fit for every embedded, real-time, or resource-constrained system.
+- Easy-to-write code can still contain logical, numerical, or security errors.
+
+Choose a tool based on the problem, constraints, team, deployment environment, and maintenance needs—not simply because a language is popular.
+
+## 10. Common Misconceptions
+
+- **“Python is only for beginners.”** It is used for both introductory programming and substantial engineering, research, and production systems.
+- **“Python is always slow.”** Performance depends on the workload and implementation. Many numerical libraries rely on optimized compiled code.
+- **“Installing Python installs every popular package.”** Third-party packages such as NumPy, pandas, and scikit-learn usually need to be installed separately in the intended environment.
+- **“A plot or high model score proves the conclusion.”** Results must be interpreted in context and checked against the data, assumptions, and evaluation method.
+- **“A library solves the whole problem.”** You still need to understand inputs, outputs, limitations, and how to verify results.
 
 ## Summary
 
-Python is used for automation, web applications and APIs, data analysis, scientific computing, AI/ML, testing, developer tools, and engineering work such as signal processing. Libraries and frameworks extend what developers can build, but they do not remove the need to understand the problem, validate assumptions, test results, and choose appropriate tools. In telecommunications, Python can support signal simulation, spectrum analysis, log processing, and modulation-classification experiments; rigorous interpretation still depends on communications theory and well-designed experiments.
+Python is used for automation, web services, data analysis, scientific computing, signal processing, machine learning, and developer tools. Libraries and frameworks extend the language, but they have their own purposes and constraints. In engineering, Python is especially useful for rapid experiments and analysis; reliable results still depend on sound assumptions, representative data, version awareness, and verification.
 
 ## Exercises
 
-Try these in order, from explanation to application. Answer in your own words and explain your reasoning.
+### Level 1 — Recall and Explain
 
-### Level 1 — Identify applications
+1. Name four areas where Python is used and give one example task for each.
+2. Explain the difference between Python, the standard library, a third-party library, and a framework.
+3. Name one strength and one limitation of Python.
 
-1. Name three repetitive tasks that could reasonably be automated with Python. For one of them, state the input and expected output.
-2. Explain the difference between a programming language, a library, and a framework. Give one example of each from this lesson.
-3. Match each task to a likely application area: analyzing a CSV file, building a web API, testing a function, simulating a noisy waveform, and training a classifier.
+### Level 2 — Apply
 
-### Level 2 — Explain workflows and limitations
+4. A technician repeatedly checks whether measured values fall within an allowed range. Explain how a Python script could help, and name one safeguard you would include before using it on real operational data.
+5. Three measurements are 8, 10, and 12. Calculate their average by hand, then write a short script using built-in functions to calculate it. Predict the output before running it.
+6. Choose NumPy, pandas, Matplotlib, or SciPy for a small task and explain why that tool fits the task better than using only basic Python.
 
-4. Outline a responsible data-analysis workflow from defining a question to communicating a conclusion. Include at least two checks for data quality or interpretation.
-5. Why is evaluating a machine-learning model only on its training data insufficient?
-6. Explain why a Fourier spectrum cannot be interpreted correctly without knowing relevant measurement conditions such as sample rate.
-7. Give two reasons an engineering team might use a language or tool other than Python for part of a project.
+### Level 3 — Connect to Telecommunications
 
-### Level 3 — Design a small project
-
-8. Choose a repetitive task you personally encounter. Define the problem, input, expected output, possible failure cases, and how you would verify the script's result.
-9. Design a high-level plan for an experiment that distinguishes two modulation classes. State what data you would need, one condition that could make the task harder, and how you would evaluate the result. Do not implement a classifier yet.
-10. Choose one measurement-analysis task. Explain what the numbers represent, which calculation or plot might help, and what assumptions you would need to check before trusting the result.
+7. Describe a simple workflow for examining the frequency content of sampled signal data. Name at least three pieces of information you would need to interpret the result correctly.
+8. Outline the stages of a modulation-classification project. Explain why training accuracy alone is not enough to judge whether the model will work on new signals.
+9. Propose one baseline experiment for a noisy-signal problem and explain how you would verify the result.
 
 ## Knowledge Check
 
-Before moving on, you should be able to:
-
-- Match a problem to a plausible Python application area.
-- Explain what a library or framework contributes.
-- Describe the basic steps of a reliable data or ML workflow.
-- Explain why simulation and plots need validation and interpretation.
-- Identify practical reasons Python may or may not fit an engineering task.
-- Describe one possible Python application in telecommunications without claiming that the tool replaces the underlying theory.
+You should be able to identify plausible Python use cases, choose a suitable category of tool, explain the difference between built-in and third-party functionality, and describe why engineering or machine-learning results require validation.
 
 ## References
 
@@ -307,11 +207,10 @@ Before moving on, you should be able to:
 - [Django documentation](https://docs.djangoproject.com/)
 - [Flask documentation](https://flask.palletsprojects.com/)
 - [FastAPI documentation](https://fastapi.tiangolo.com/)
-- [pandas documentation](https://pandas.pydata.org/docs/)
 - [NumPy documentation](https://numpy.org/doc/)
-- [NumPy FFT documentation](https://numpy.org/doc/stable/reference/routines.fft.html)
-- [SciPy documentation](https://docs.scipy.org/doc/scipy/)
-- [SciPy signal processing](https://docs.scipy.org/doc/scipy/reference/signal.html)
+- [pandas documentation](https://pandas.pydata.org/docs/)
+- [Matplotlib documentation](https://matplotlib.org/stable/)
+- [SciPy signal-processing reference](https://docs.scipy.org/doc/scipy/reference/signal.html)
 - [scikit-learn documentation](https://scikit-learn.org/stable/)
 - [PyTorch documentation](https://pytorch.org/docs/stable/)
-- [MicroPython documentation](https://docs.micropython.org/)
+- [Python Packaging User Guide](https://packaging.python.org/en/latest/)
