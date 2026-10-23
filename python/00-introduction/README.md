@@ -81,15 +81,21 @@ Expected output:
 
 If you can complete the checkpoint with only occasional reference to the notes, the Introduction section has done its job. You do not need to master later Python topics in advance.
 
+## Final assessment
+
+The module previously had an end-of-section checkpoint and a practice lab, but no separate formal exam. A dedicated assessment is now available: [Introduction — Final Assessment](./09-final-assessment.md).
+
+Use the assessment to check your understanding and practical ability. Do not mark the skill checkpoint below complete merely because you have read the lessons; tick each item only after you can demonstrate it.
+
 ## Study progress
 
-Mark a lesson as studied only after working through it, attempting its exercises, and reviewing any gaps.
+All eight Introduction lessons have been studied and reviewed.
 
 - [x] 01 — What Is Python
 - [x] 02 — Python Applications
 - [x] 03 — Programming Fundamentals
-- [ ] 04 — How Python Runs
-- [ ] 05 — Installation and Setup
-- [ ] 06 — Running Python Code
-- [ ] 07 — First Python Program
-- [ ] 08 — Python Documentation
+- [x] 04 — How Python Runs
+- [x] 05 — Installation and Setup
+- [x] 06 — Running Python Code
+- [x] 07 — First Python Program
+- [x] 08 — Python Documentation
