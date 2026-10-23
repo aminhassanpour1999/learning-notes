@@ -4,7 +4,7 @@
 **Lesson:** 1 of 9  
 **Level:** Beginner  
 **Suggested study time:** 60–75 minutes  
-**Prerequisites:** Introduction module completed
+**Prerequisites:** Introduction module completed  
 **Study method:** Read each section, predict outputs before running code, then complete the exercises
 
 ## Lesson guide
