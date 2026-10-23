@@ -42,13 +42,42 @@ Complete this checkpoint without copying a solution. You may consult the notes w
 - [ ] Find an answer in official documentation, interpret a function's signature, and check relevant version notes.
 - [ ] Describe one way to verify a small program's result independently.
 
-### Suggested mini-project
+### Final Practice Lab: Average Two Measurements
 
-Create a script that calculates the average of two numerical values, prints the result, and includes a short comment explaining the calculation.
+**Goal:** combine the introductory skills from this section: identify inputs and processing, write a small script, run it, predict output, and verify the result independently.
 
-Before running it, predict the output. After running it, compare the result with a hand calculation. Then change one value and predict the new result before running the script again.
+1. Create a file named `introduction_average.py` in your Python learning folder.
+2. Write the following program and save the file:
 
-Finally, state one thing the script does **not** check. For example, this first version may assume that both values are already valid numbers. Input validation and more advanced testing will be taught later.
+```python
+first_value = 18
+second_value = 26
+
+average = (first_value + second_value) / 2
+
+print(average)
+```
+
+3. Before running the file, calculate the expected result by hand.
+4. Run it from the folder containing the file:
+
+```bash
+python3 introduction_average.py
+```
+
+Use the Python command available on your system if it differs from `python3`.
+
+Expected output:
+
+```text
+22.0
+```
+
+5. Change `second_value` to `30`. Predict the output before running the program again.
+6. Explain the program using input, processing, and output.
+7. State one limitation. For example, this version assumes both values are valid numbers and does not ask the user for input.
+
+**Completion criteria:** you can explain each line, predict the output before execution, verify it with a hand calculation, modify one value without copying a solution, and describe a limitation. If a result differs from your prediction, investigate the reason before considering the lab complete.
 
 If you can complete the checkpoint with only occasional reference to the notes, the Introduction section has done its job. You do not need to master later Python topics in advance.
 
